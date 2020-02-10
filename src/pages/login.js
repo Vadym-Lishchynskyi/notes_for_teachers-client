@@ -2,6 +2,8 @@ import React,{ Component } from 'react';
 import withStyles from '@material-ui/core/styles/withStyles';
 import PropTypes from 'prop-types';
 import axios from 'axios';
+import {Link} from 'react-router-dom';
+
 
 import AppIcon from '../images/VTC_logo.png';
 
@@ -10,27 +12,12 @@ import Grid from '@material-ui/core/Grid';
 import Typography from '@material-ui/core/Typography';
 import TextField from "@material-ui/core/TextField";
 import Button from "@material-ui/core/Button";
+import CircularProgress from '@material-ui/core/CircularProgress';
+import theme from "../util/theme";
 
 
 const styles ={
-    form:{
-        textAlign:'center',
-
-    },
-    img:{
-        width:150,
-        height:150,
-        margin: '5px auto',
-    },
-    pageTitle:{
-        margin: '5px auto',
-    },
-    textField:{
-        margin: '7px auto',
-    },
-    button:{
-        marginTop:10,
-    }
+  ...theme
 };
 
 class login extends Component{
@@ -56,6 +43,7 @@ class login extends Component{
         axios.post('/login', userData)
             .then(res=>{
                 console.log(res.data);
+                localStorage.setItem('FBIdToken', `Bearer ${res.data.token}`);
                 this.setState({
                     loading:false
                 });
@@ -92,7 +80,7 @@ class login extends Component{
                             label='Email'
                             className={classes.textField}
                             helperText={errors.email}
-                            error={errors.email ? true : false}
+                            error={!!errors.email}
                             value={this.state.email}
                             onChange={this.handleChange}
                             fullWidth/>
@@ -103,11 +91,20 @@ class login extends Component{
                             label='Password'
                             className={classes.textField}
                             helperText={errors.password}
-                            error={errors.password ? true : false}
+                            error={!!errors.password}
                             value={this.state.password}
                             onChange={this.handleChange}
                             fullWidth/>
+                        {/*{errors.general && (*/}
+                        {/*    <Typography variant='body2' className={classes.customerr}>*/}
+                        {/*        {errors.general}*/}
+                        {/*    </Typography>*/}
+                        {/*)}*/}
                         <Button type='submit' variant='contained' color='primary' className={classes.button}>Log in</Button>
+                        <br/>
+                        <small>
+                            Already have an account ? login <Link to='/signup'>here</Link>
+                        </small>
                     </form>
                 </Grid>
                 <Grid item sm/>
