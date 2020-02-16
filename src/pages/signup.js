@@ -52,7 +52,7 @@ class signup extends Component{
           });
           this.props.history.push('/');
         })
-        .catch(err=>{
+        .catch((err)=>{
           this.setState({
             error : err.response.data,
             loading:false

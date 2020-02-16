@@ -8,6 +8,9 @@ import themeFile from './util/theme';
 import jwtDecode from 'jwt-decode';
 import axios from 'axios';
 
+//Redux
+import { Provider } from 'react-redux';
+import store from './redux/store';
 
 //Components
 import NavBar from './components/Navbar';
@@ -41,7 +44,7 @@ class  App extends Component {
   render() {
     return(
       <MuiThemeProvider theme= {theme}>
-        <div className='App'>
+        <Provider store={store}>
         <Router>
           <NavBar/>
             <div className='container'>
@@ -52,7 +55,7 @@ class  App extends Component {
             </Switch>
           </div>
         </Router>
-      </div>
+       </Provider>
       </MuiThemeProvider>
     );
   }
