@@ -6,6 +6,7 @@ import createMuiTheme from '@material-ui/core/styles/createMuiTheme';
 import blue from '@material-ui/core/colors/blue';
 import themeFile from './util/theme';
 import jwtDecode from 'jwt-decode';
+import axios from 'axios';
 
 
 //Components
@@ -20,6 +21,8 @@ import signup from './pages/signup';
 
 
 const theme = createMuiTheme(themeFile);
+
+axios.defaults.baseURL ='https://europe-west1-notes-for-teachers.cloudfunctions.net/api';
 
 // let authenticated;
 // const token =localStorage.FBIdToken;

@@ -9,7 +9,7 @@ import Scream from '../components/Scream';
 class home extends Component {
   state ={
     screams: null
-  }
+  };
   componentDidMount(){
     axios.get('/screams')
     .then(res =>{
