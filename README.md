@@ -1,4 +1,4 @@
-#Teachers achievements
+## Teachers achievements
 A web source were teachers can post their achievement during a year. They all have personal rooms and a place where can check others achievements.
 Like a database Firebase has been choosen. 
 
