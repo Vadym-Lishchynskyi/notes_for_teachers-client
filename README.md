@@ -1,3 +1,9 @@
+#Teachers achievements
+A web source were teachers can post their achievement during a year. They all have personal rooms and a place where can check others achievements.
+Like a database Firebase has been choosen. 
+
+
+
 This project was bootstrapped with [Create React App](https://github.com/facebook/create-react-app).
 
 ## Available Scripts
